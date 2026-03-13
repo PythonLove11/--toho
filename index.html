@@ -2,145 +2,154 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<title>きいぼおどらんにんぐ</title>
-<meta name="description" content="きいぼおどらんにんぐのゲーム解説サイト。操作方法やjqentyの説明を紹介しています。">
-<meta name="keywords" content="きいぼおどらんにんぐ, キーボードゲーム, jqenty, ブラウザゲーム">
+<title>きいぼおどらんにんぐ｜ゲーム解説サイト</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- ドット風フォント -->
-<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
 
 <style>
 body{
-    margin:0;
-    font-family: 'Press Start 2P', cursive; /* ドット風フォント */
-    background:#f4f6fb;
-    scroll-behavior:smooth; /* 滑らかスクロール */
+  margin:0;
+  font-family:'Noto Sans JP',sans-serif;
+  background:linear-gradient(135deg,#e8f0ff,#f7f9ff);
+  scroll-behavior:smooth;
 }
 
-/* ヘッダー */
+/* header */
 header{
-    position:fixed;
-    top:0;
-    width:100%;
-    background:#34495e;
-    color:white;
-    z-index:1000;
+  position:fixed;
+  top:0;
+  width:100%;
+  background:#2c3e50;
+  color:white;
+  z-index:1000;
+  box-shadow:0 3px 10px rgba(0,0,0,0.2);
 }
 
-/* ヘッダー内 */
+/* ヘッダー中央揃え */
 .header-container{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    height:60px;
-    position:relative;
-    padding-left:80px; /* タイトルと三本線の間隔 */
+  display:flex;
+  align-items:center; /* 縦中央 */
+  justify-content:center;
+  height:80px;
+  position:relative;
+  padding-left:80px;
 }
 
 /* タイトル */
-header h1{
-    margin:0;
-    font-size:26px;
+.logo{
+  font-size:28px;
+  font-weight:700;
+  color:white;
+  margin:0;
+  letter-spacing:2px;
 }
 
-/* ハンバーガーメニュー */
+/* ハンバーガー */
 .menu-button{
-    position:absolute;
-    left:20px;
-    width:30px;
-    height:24px;
-    cursor:pointer;
-    display:flex;
-    flex-direction:column;
-    justify-content:space-between;
+  position:absolute;
+  left:20px;
+  width:30px;
+  height:24px; /* 高さ必須 */
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  cursor:pointer;
 }
 
 .menu-button span{
-    display:block;
-    height:4px;
-    background:white;
-    border-radius:2px;
-    transition:0.3s;
+  display:block;
+  height:4px;
+  background:white;
+  border-radius:2px;
+  transition:0.3s;
 }
 
-/* アニメーション */
 .menu-button.active span:nth-child(1){
-    transform:rotate(45deg) translate(6px,6px);
+  transform:rotate(45deg) translate(6px,6px);
 }
 
 .menu-button.active span:nth-child(2){
-    opacity:0;
+  opacity:0;
 }
 
 .menu-button.active span:nth-child(3){
-    transform:rotate(-45deg) translate(6px,-6px);
+  transform:rotate(-45deg) translate(6px,-6px);
 }
 
-/* メニュー（左スライド） */
+/* menu */
 nav{
-    position:fixed;
-    top:0;
-    left:-200px; /* 初期は画面外 */
-    width:200px;
-    height:100%;
-    background:#2c3e50;
-    overflow-y:auto;
-    transition:left 0.3s ease;
-    z-index:999;
+  position:fixed;
+  top:0;
+  left:-200px;
+  width:200px;
+  height:100%;
+  background:#34495e;
+  transition:0.3s;
+  padding-top:80px;
 }
 
 nav.open{
-    left:0;
+  left:0;
 }
 
 nav a{
-    display:block;
-    padding:14px;
-    text-align:center;
-    color:white;
-    text-decoration:none;
+  display:block;
+  padding:14px;
+  color:white;
+  text-decoration:none;
+  text-align:center;
 }
 
 nav a:hover{
-    background:#3b5870;
+  background:#3e5870;
 }
 
-/* 本文 */
+/* main */
 main{
-    max-width:900px;
-    margin:auto;
-    padding:100px 30px 30px 30px;
+  max-width:900px;
+  margin:auto;
+  padding:120px 20px 40px;
 }
 
+/* card */
 section{
-    background:white;
-    padding:20px;
-    margin-bottom:25px;
-    border-radius:8px;
-    box-shadow:0 3px 8px rgba(0,0,0,0.1);
+  background:white;
+  margin-bottom:25px;
+  padding:25px;
+  border-radius:10px;
+  border:3px solid #d5def2;
+  box-shadow:0 4px 12px rgba(0,0,0,0.1);
+  transition:0.2s;
 }
 
-/* フッター */
+section:hover{
+  transform:translateY(-4px);
+  box-shadow:0 10px 20px rgba(0,0,0,0.15);
+}
+
+section h2{
+  margin-top:0;
+  border-bottom:3px dashed #ccd6f6;
+  padding-bottom:10px;
+}
+
+/* footer */
 footer{
-    background:#2c3e50;
-    color:white;
-    text-align:center;
-    padding:15px;
-    font-size:14px;
+  background:#2c3e50;
+  color:white;
+  text-align:center;
+  padding:20px;
 }
 
-/* スマホ対応 */
-@media screen and (max-width:600px){
-    header h1{
-        font-size:22px;
-    }
-    .header-container{
-        padding-left:60px;
-    }
-    nav{
-        width:160px;
-    }
+/* mobile */
+@media(max-width:600px){
+  .logo{
+    font-size:22px;
+  }
+  nav{
+    width:160px;
+  }
 }
 </style>
 </head>
@@ -149,18 +158,19 @@ footer{
 
 <header>
 <div class="header-container">
-    <div class="menu-button" id="menu-btn">
-        <span></span>
-        <span></span>
-        <span></span>
-    </div>
-    <h1>きいぼおどらんにんぐ</h1>
+  <div class="menu-button" id="menu-btn">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <h1 class="logo">きいぼおどらんにんぐ</h1>
 </div>
 
 <nav id="menu">
-    <a href="#about" class="menu-link">ゲームとは</a>
-    <a href="#controls" class="menu-link">操作方法</a>
-    <a href="#jqenty" class="menu-link">jqenty</a>
+  <a href="#about" class="menu-link">ゲームとは</a>
+  <a href="#controls" class="menu-link">操作方法</a>
+  <a href="#jqenty" class="menu-link">jQuery</a>
 </nav>
 </header>
 
@@ -183,46 +193,43 @@ footer{
 </section>
 
 <section id="jqenty">
-<h2>jqentyとは？</h2>
+<h2>jQueryとは？</h2>
 <p>
-jqentyはJavaScriptを簡単に扱うためのライブラリです。
+jQueryはJavaScriptを簡単に扱うためのライブラリです。
 イベント処理や画面操作を簡単に実装できます。
 </p>
 </section>
 </main>
 
 <footer>
-© 2026 Yuki Ando / きいぼおどらんにんぐ 解説サイト
+© 2026 Yuki Ando / きいぼおどらんにんぐ
 </footer>
 
 <script>
-const menuBtn = document.getElementById('menu-btn');
-const menu = document.getElementById('menu');
-const menuLinks = document.querySelectorAll('.menu-link');
+const menuBtn=document.getElementById('menu-btn');
+const menu=document.getElementById('menu');
+const links=document.querySelectorAll('.menu-link');
 
-// ハンバーガー押したら開閉
-menuBtn.addEventListener('click', (e)=>{
-    e.stopPropagation(); // イベントがbodyに伝播しないようにする
-    menu.classList.toggle('open');
-    menuBtn.classList.toggle('active');
+menuBtn.addEventListener('click',(e)=>{
+  e.stopPropagation();
+  menu.classList.toggle('open');
+  menuBtn.classList.toggle('active');
 });
 
-// メニュー項目クリックでスクロール＆閉じる
-menuLinks.forEach(link => {
-    link.addEventListener('click', ()=>{
-        menu.classList.remove('open');
-        menuBtn.classList.remove('active');
-    });
+links.forEach(link=>{
+  link.addEventListener('click',()=>{
+    menu.classList.remove('open');
+    menuBtn.classList.remove('active');
+  });
 });
 
-// メニュー開いているとき、タブ以外クリックで閉じる
-document.addEventListener('click', (e)=>{
-    if(menu.classList.contains('open')){
-        if(!menu.contains(e.target) && e.target !== menuBtn){
-            menu.classList.remove('open');
-            menuBtn.classList.remove('active');
-        }
+document.addEventListener('click',(e)=>{
+  if(menu.classList.contains('open')){
+    if(!menu.contains(e.target) && !menuBtn.contains(e.target)){
+      menu.classList.remove('open');
+      menuBtn.classList.remove('active');
     }
+  }
 });
 </script>
 
